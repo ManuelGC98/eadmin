@@ -17,13 +17,13 @@ public class Documento extends AdministracionElectronicaBase {
 
 	@Override
 	public int hashCode() {
-		return getCodigo().hashCode();
+		return codigo.hashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Documento) {
-			return getCodigo().equals(((Documento) obj).getCodigo());
+			return codigo.equals(((Documento) obj).getCodigo());
 		}
 		return false;
 	}

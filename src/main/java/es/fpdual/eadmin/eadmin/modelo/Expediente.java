@@ -31,19 +31,17 @@ public class Expediente extends AdministracionElectronicaBase {
 
 	@Override
 	public int hashCode() {
-		return getCodigo().hashCode() + getNombre().hashCode() + getFechaCreacion().hashCode()
-				+ fechaArchivado.hashCode() + getPublico().hashCode() + estado.hashCode();
+		return codigo.hashCode() + nombre.hashCode() + fechaCreacion.hashCode() + fechaArchivado.hashCode()
+				+ publico.hashCode() + estado.hashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Expediente) {
-			return getCodigo().equals(((Expediente) obj).getCodigo())
-					&& getNombre().equals(((Expediente) obj).getNombre())
-					&& getFechaCreacion().equals(((Expediente) obj).getFechaCreacion())
+			return codigo.equals(((Expediente) obj).getCodigo()) && nombre.equals(((Expediente) obj).getNombre())
+					&& fechaCreacion.equals(((Expediente) obj).getFechaCreacion())
 					&& fechaArchivado.equals(((Expediente) obj).getFechaArchivado())
-					&& getPublico().equals(((Expediente) obj).getPublico())
-					&& estado.equals(((Expediente) obj).getEstado());
+					&& publico.equals(((Expediente) obj).getPublico()) && estado.equals(((Expediente) obj).getEstado());
 		}
 		return false;
 	}

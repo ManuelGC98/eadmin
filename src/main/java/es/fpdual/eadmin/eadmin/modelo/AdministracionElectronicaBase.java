@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class AdministracionElectronicaBase {
 
-	private Integer codigo;
-	private String nombre;
-	private Date fechaCreacion;
-	private Boolean publico;
+	protected Integer codigo;
+	protected String nombre;
+	protected Date fechaCreacion;
+	protected Boolean publico;
 
 	public AdministracionElectronicaBase(Integer codigo, String nombre, Date fechaCreacion, Boolean publico) {
 		this.codigo = codigo;
