@@ -2,7 +2,7 @@ package es.fpdual.eadmin.eadmin.modelo;
 
 import java.util.Date;
 
-public class AdministracionElectronicaBase {
+public abstract class AdministracionElectronicaBase {
 
 	protected Integer codigo;
 	protected String nombre;
