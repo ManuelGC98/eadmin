@@ -3,45 +3,22 @@ package es.fpdual.eadmin.eadmin.modelo;
 import java.util.Date;
 import java.util.List;
 
-public class Expediente {
+public class Expediente extends AdministracionElectronicaBase {
 
-	private Integer codigo;
-	private String nombre;
-	private Date fechaCreacion;
 	private Date fechaArchivado;
-	private Boolean publico;
 	private EstadoExpediente estado;
 
 	private List<Documento> documentos;
 
-	public Expediente(Integer codigo, String nombre, Date fechaCreacion, Date fechaArchivado, Boolean publico,
+	public Expediente(Integer codigo, String nombre, Date fechaCreacion, Boolean publico, Date fechaArchivado,
 			EstadoExpediente estado) {
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.fechaCreacion = fechaCreacion;
+		super(codigo, nombre, fechaCreacion, publico);
 		this.fechaArchivado = fechaArchivado;
-		this.publico = publico;
 		this.estado = estado;
-	}
-
-	public Integer getCodigo() {
-		return codigo;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public Date getFechaCreacion() {
-		return fechaCreacion;
 	}
 
 	public Date getFechaArchivado() {
 		return fechaArchivado;
-	}
-
-	public Boolean getPublico() {
-		return publico;
 	}
 
 	public EstadoExpediente getEstado() {
@@ -54,17 +31,19 @@ public class Expediente {
 
 	@Override
 	public int hashCode() {
-		return codigo.hashCode() + nombre.hashCode() + fechaCreacion.hashCode() + fechaArchivado.hashCode()
-				+ publico.hashCode() + estado.hashCode();
+		return getCodigo().hashCode() + getNombre().hashCode() + getFechaCreacion().hashCode()
+				+ fechaArchivado.hashCode() + getPublico().hashCode() + estado.hashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Expediente) {
-			return codigo.equals(((Expediente) obj).getCodigo()) && nombre.equals(((Expediente) obj).getNombre())
-					&& fechaCreacion.equals(((Expediente) obj).getFechaCreacion())
+			return getCodigo().equals(((Expediente) obj).getCodigo())
+					&& getNombre().equals(((Expediente) obj).getNombre())
+					&& getFechaCreacion().equals(((Expediente) obj).getFechaCreacion())
 					&& fechaArchivado.equals(((Expediente) obj).getFechaArchivado())
-					&& publico.equals(((Expediente) obj).getPublico()) && estado.equals(((Expediente) obj).getEstado());
+					&& getPublico().equals(((Expediente) obj).getPublico())
+					&& estado.equals(((Expediente) obj).getEstado());
 		}
 		return false;
 	}

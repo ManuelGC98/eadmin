@@ -21,7 +21,7 @@ public class TestExpediente {
 
 	@Before
 	public void inicializar() {
-		exp = new Expediente(CODIGO_EXPEDIENTE, NOMBRE_EXPEDIENTE, FECHA_CREACION, FECHA_ARCHIVADO, EXPEDIENTE_PUBLICO,
+		exp = new Expediente(CODIGO_EXPEDIENTE, NOMBRE_EXPEDIENTE, FECHA_CREACION, EXPEDIENTE_PUBLICO, FECHA_ARCHIVADO,
 				EstadoExpediente.INICIADO);
 	}
 
@@ -37,8 +37,8 @@ public class TestExpediente {
 
 	@Test
 	public void deberiaDevolverTrueSiEsElMismoExpediente() {
-		final Expediente exp2 = new Expediente(CODIGO_EXPEDIENTE, NOMBRE_EXPEDIENTE, FECHA_CREACION, FECHA_ARCHIVADO,
-				EXPEDIENTE_PUBLICO, EstadoExpediente.INICIADO);
+		final Expediente exp2 = new Expediente(CODIGO_EXPEDIENTE, NOMBRE_EXPEDIENTE, FECHA_CREACION, EXPEDIENTE_PUBLICO,
+				FECHA_ARCHIVADO, EstadoExpediente.INICIADO);
 
 		final Boolean resultado = exp2.equals(exp);
 		assertTrue(resultado);
