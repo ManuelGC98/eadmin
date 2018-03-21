@@ -29,7 +29,15 @@ public class RepositorioDocumentoImpl implements RepositorioDocumento {
 
 	@Override
 	public void eliminarDocumento(Integer codigo) {
-		final Documento documentoEncontrado = documentos.stream()
+		Documento documentoEncontrado = null;
+
+		for (int i = 0; i < documentos.size(); i++) {
+			if (documentos.get(i).getCodigo().equals(codigo)) {
+				documentoEncontrado = documentos.get(i);
+				break;
+			}
+		}
+
 		if (Objects.nonNull(documentoEncontrado)) {
 			documentos.remove(documentoEncontrado);
 		}

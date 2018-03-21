@@ -16,28 +16,28 @@ public class TestDocumento {
 	private static final boolean DOCUMENTO_PUBLICO = true;
 	private static final Integer CODIGO_DOCUMENTO = 1;
 
-	Documento doc;
+	Documento documento;
 
 	@Before
 	public void inicializar() {
-		doc = new Documento(CODIGO_DOCUMENTO, NOMBRE_DOCUMENTO, FECHA_CREACION, DOCUMENTO_PUBLICO,
+		documento = new Documento(CODIGO_DOCUMENTO, NOMBRE_DOCUMENTO, FECHA_CREACION, DOCUMENTO_PUBLICO,
 				EstadoDocumento.ACTIVO);
 	}
 
 	@Test
 	public void deberiaComprobarGetters() {
-		assertEquals(CODIGO_DOCUMENTO, doc.getCodigo());
-		assertEquals(NOMBRE_DOCUMENTO, doc.getNombre());
-		assertEquals(FECHA_CREACION, doc.getFechaCreacion());
-		assertEquals(DOCUMENTO_PUBLICO, doc.getPublico());
-		assertEquals(EstadoDocumento.ACTIVO, doc.getEstado());
+		assertEquals(CODIGO_DOCUMENTO, documento.getCodigo());
+		assertEquals(NOMBRE_DOCUMENTO, documento.getNombre());
+		assertEquals(FECHA_CREACION, documento.getFechaCreacion());
+		assertEquals(DOCUMENTO_PUBLICO, documento.getPublico());
+		assertEquals(EstadoDocumento.ACTIVO, documento.getEstado());
 	}
 
 	@Test
 	public void deberiaDevolverTrueSiTienenIgualCodigo() {
 		final Documento doc2 = new Documento(CODIGO_DOCUMENTO, null, null, null, null);
 
-		final Boolean resultado = doc2.equals(doc);
+		final Boolean resultado = doc2.equals(documento);
 		assertTrue(resultado);
 	}
 
@@ -45,19 +45,19 @@ public class TestDocumento {
 	public void deberiaDevolverFalseSiNoTienenIgualCodigo() {
 		final Documento doc2 = new Documento(5, null, null, null, null);
 
-		final Boolean resultado = doc2.equals(doc);
+		final Boolean resultado = doc2.equals(documento);
 		assertFalse(resultado);
 	}
 
 	@Test
 	public void deberiaDevolverFalseSiNoEsUnDocumento() {
-		final Boolean resultado = doc.equals(new Date());
+		final Boolean resultado = documento.equals(new Date());
 		assertFalse(resultado);
 	}
 
 	@Test
 	public void deberiaDevolverHashCodeDelCodigo() {
-		final int resultado = doc.hashCode();
+		final int resultado = documento.hashCode();
 
 		assertEquals(CODIGO_DOCUMENTO.hashCode(), resultado);
 	}
