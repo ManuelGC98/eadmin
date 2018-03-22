@@ -17,18 +17,18 @@ public class TestDocumentoContable {
 	private static final BigDecimal IMPORTE_DOCUMENTO_CONTABLE = new BigDecimal(1.25);
 	private static final String DNI_INTERESADO_DOCUMENTO_CONTABLE = "12345678X";
 
-	DocumentoContable doc;
+	DocumentoContable documento;
 
 	@Before
 	public void inicializar() {
-		doc = new DocumentoContable(CODIGO_DOCUMENTO_CONTABLE, NOMBRE_DOCUMENTO_CONTABLE, FECHA_CREACION,
+		documento = new DocumentoContable(CODIGO_DOCUMENTO_CONTABLE, NOMBRE_DOCUMENTO_CONTABLE, FECHA_CREACION,
 				DOCUMENTO_CONTABLE_PUBLICO, EstadoDocumento.ACTIVO, IMPORTE_DOCUMENTO_CONTABLE,
 				DNI_INTERESADO_DOCUMENTO_CONTABLE);
 	}
 
 	@Test
 	public void deberiaComprobarGetters() {
-		assertEquals(IMPORTE_DOCUMENTO_CONTABLE, doc.getImporte());
-		assertEquals(DNI_INTERESADO_DOCUMENTO_CONTABLE, doc.getDniInteresado());
+		assertEquals(IMPORTE_DOCUMENTO_CONTABLE, documento.getImporte());
+		assertEquals(DNI_INTERESADO_DOCUMENTO_CONTABLE, documento.getDniInteresado());
 	}
 }
