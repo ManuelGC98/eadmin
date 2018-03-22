@@ -4,7 +4,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,12 +32,13 @@ public class TestRepositorioDocumentoImpl {
 
 	@Test
 	public void deberiaDarDeAltaUnDocumento() {
-		
+		repositorioDocumento.altaDocumento(documento);
+
+		assertTrue(this.repositorioDocumento.getDocumentos().contains(documento));
 	}
 
 	@Test
 	public void deberiaModificarUnDocumento() {
-		
 	}
 
 	@Test
