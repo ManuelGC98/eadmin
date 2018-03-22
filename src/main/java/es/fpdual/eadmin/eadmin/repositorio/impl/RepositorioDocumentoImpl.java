@@ -29,14 +29,8 @@ public class RepositorioDocumentoImpl implements RepositorioDocumento {
 
 	@Override
 	public void eliminarDocumento(Integer codigo) {
-		Documento documentoEncontrado = null;
-
-		for (int i = 0; i < documentos.size(); i++) {
-			if (documentos.get(i).getCodigo().equals(codigo)) {
-				documentoEncontrado = documentos.get(i);
-				break;
-			}
-		}
+		Documento documentoEncontrado = documentos.stream().filter(d -> d.getCodigo().equals(codigo)).findFirst()
+				.orElseGet(null);
 
 		if (Objects.nonNull(documentoEncontrado)) {
 			documentos.remove(documentoEncontrado);
@@ -44,4 +38,7 @@ public class RepositorioDocumentoImpl implements RepositorioDocumento {
 		throw new IllegalArgumentException("El documento no existe.");
 	}
 
+	public List<Documento> getDocumentos() {
+		return this.documentos;
+	}
 }
