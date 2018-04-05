@@ -5,16 +5,16 @@ import java.util.List;
 
 public class Expediente extends AdministracionElectronicaBase {
 
-	private Date fechaArchivado;
-	private EstadoExpediente estado;
+	private final Date fechaArchivado;
+	private final EstadoExpediente estado;
+	private final List<Documento> documentos;
 
-	private List<Documento> documentos;
-
-	public Expediente(Integer codigo, String nombre, Date fechaCreacion, Boolean publico, Date fechaArchivado,
-			EstadoExpediente estado) {
-		super(codigo, nombre, fechaCreacion, publico);
+	public Expediente(Integer codigo, String nombre, Date fechaCreacion, Date fechaUltimaActualizacion,
+			Date fechaArchivado, Boolean publico, EstadoExpediente estado, List<Documento> documentos) {
+		super(codigo, nombre, fechaCreacion, fechaUltimaActualizacion, publico);
 		this.fechaArchivado = fechaArchivado;
 		this.estado = estado;
+		this.documentos = documentos;
 	}
 
 	public Date getFechaArchivado() {
@@ -32,17 +32,22 @@ public class Expediente extends AdministracionElectronicaBase {
 	@Override
 	public int hashCode() {
 		return codigo.hashCode() + nombre.hashCode() + fechaCreacion.hashCode() + fechaArchivado.hashCode()
-				+ publico.hashCode() + estado.hashCode();
+				+ fechaUltimaActualizacion.hashCode() + publico.hashCode() + estado.hashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
+
 		if (obj instanceof Expediente) {
-			return codigo.equals(((Expediente) obj).getCodigo()) && nombre.equals(((Expediente) obj).getNombre())
-					&& fechaCreacion.equals(((Expediente) obj).getFechaCreacion())
-					&& fechaArchivado.equals(((Expediente) obj).getFechaArchivado())
-					&& publico.equals(((Expediente) obj).getPublico()) && estado.equals(((Expediente) obj).getEstado());
+			final Expediente expediente = (Expediente) obj;
+			return expediente.getCodigo().equals(this.codigo) && expediente.getNombre().equals(this.nombre)
+					&& expediente.getFechaCreacion().equals(this.fechaCreacion)
+					&& expediente.getFechaUltimaActualizacion().equals(this.fechaUltimaActualizacion)
+					&& expediente.getFechaArchivado().equals(this.fechaArchivado)
+					&& expediente.getPublico().equals(this.publico) && expediente.getEstado().equals(this.estado);
 		}
+
 		return false;
+
 	}
 }
