@@ -6,8 +6,9 @@ public class Documento extends AdministracionElectronicaBase {
 
 	private EstadoDocumento estado;
 
-	public Documento(Integer codigo, String nombre, Date fechaCreacion, Boolean publico, EstadoDocumento estado) {
-		super(codigo, nombre, fechaCreacion, publico);
+	public Documento(Integer codigo, String nombre, Date fechaCreacion, Date fechaUltimaActualizacion, Boolean publico,
+			EstadoDocumento estado) {
+		super(codigo, nombre, fechaCreacion, fechaUltimaActualizacion, publico);
 		this.estado = estado;
 	}
 
@@ -29,5 +30,16 @@ public class Documento extends AdministracionElectronicaBase {
 					&& publico.equals(((Documento) obj).getPublico()) && estado.equals(((Documento) obj).getEstado());
 		}
 		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Documento con código " + codigo;
+	}
+
+	public String getDatos() {
+		return "Documento con código" + this.getCodigo() + " Nombre:  " + this.getNombre() + " FechaCracion: "
+				+ this.getFechaCreacion() + " FechaUltimaActualizacion: " + this.getFechaUltimaActualizacion()
+				+ " Publico: " + this.getPublico() + ".";
 	}
 }

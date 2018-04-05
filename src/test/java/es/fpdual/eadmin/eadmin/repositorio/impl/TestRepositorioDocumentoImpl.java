@@ -13,7 +13,7 @@ import es.fpdual.eadmin.eadmin.modelo.EstadoDocumento;
 public class TestRepositorioDocumentoImpl {
 
 	private static final Date FECHA_CREACION = new Date();
-	private static final String NOMBRE_DOCUMENTO = "nombre", NUEVO_NOMBRE_DOCUMENTO = "Nuevo nombre";
+	private static final String NOMBRE_DOCUMENTO = "nombre";
 	private static final boolean DOCUMENTO_PUBLICO = true;
 	private static final Integer CODIGO_DOCUMENTO = 1, CODIGO_DOCUMENTO2 = 2;
 
